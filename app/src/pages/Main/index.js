@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { Container, SectionContainer, RegisterUser } from './styles';
@@ -34,7 +34,7 @@ export default function Main() {
       state,
       neighborhood,
       number,
-      complement
+      complement,
     };
 
     try {
@@ -44,19 +44,15 @@ export default function Main() {
 
       setTimeout(() => {
         setSuccess(false);
-      }, 2000)
+      }, 2000);
     } catch (err) {
-      toast.error('Erro ao cadastrar, tente novamente!')
+      toast.error('Erro ao cadastrar, tente novamente!');
     }
   }
 
   return (
     <Container>
-      {
-        success && (
-          <MessageOk />
-        )
-      }
+      {success && <MessageOk />}
       <HeaderComponent />
 
       <SectionContainer>
@@ -72,7 +68,7 @@ export default function Main() {
             placeholder="Nome completo"
             autoComplete="false"
             required
-            onChange={e => setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
 
           <input
@@ -80,7 +76,7 @@ export default function Main() {
             placeholder="Melhor e-mail"
             autoComplete="false"
             required
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <div className="field_group">
@@ -88,21 +84,21 @@ export default function Main() {
               placeholder="CPF"
               autoComplete="false"
               required
-              onChange={e => setCpf(e.target.value)}
+              onChange={(e) => setCpf(e.target.value)}
             />
 
             <input
               placeholder="Telefone"
               autoComplete="false"
               required
-              onChange={e => setPhone(e.target.value)}
+              onChange={(e) => setPhone(e.target.value)}
             />
 
             <input
               placeholder="CEP"
               autoComplete="false"
               required
-              onChange={e => setCep(e.target.value)}
+              onChange={(e) => setCep(e.target.value)}
             />
           </div>
 
@@ -110,7 +106,7 @@ export default function Main() {
             placeholder="Endereço"
             autoComplete="false"
             required
-            onChange={e => setStreet(e.target.value)}
+            onChange={(e) => setStreet(e.target.value)}
           />
 
           <div className="field_group">
@@ -118,7 +114,7 @@ export default function Main() {
               placeholder="Cidade"
               autoComplete="false"
               required
-              onChange={e => setCity(e.target.value)}
+              onChange={(e) => setCity(e.target.value)}
             />
 
             <input
@@ -126,14 +122,14 @@ export default function Main() {
               maxLength="2"
               autoComplete="false"
               required
-              onChange={e => setState(e.target.value)}
+              onChange={(e) => setState(e.target.value)}
             />
 
             <input
               placeholder="Bairro"
               autoComplete="false"
               required
-              onChange={e => setNeighborhood(e.target.value)}
+              onChange={(e) => setNeighborhood(e.target.value)}
             />
           </div>
 
@@ -141,19 +137,19 @@ export default function Main() {
             <input
               placeholder="Rua"
               autoComplete="false"
-              onChange={e => setStreet(e.target.value)}
+              onChange={(e) => setStreet(e.target.value)}
             />
 
             <input
               placeholder="Número"
               autoComplete="false"
-              onChange={e => setNumber(e.target.value)}
+              onChange={(e) => setNumber(e.target.value)}
             />
 
             <input
               placeholder="Complemento"
               autoComplete="false"
-              onChange={e => setComplement(e.target.value)}
+              onChange={(e) => setComplement(e.target.value)}
             />
           </div>
 
@@ -164,26 +160,26 @@ export default function Main() {
           <input
             placeholder="Endereço Alternativo"
             autoComplete="false"
-            onChange={e => setStreet(e.target.value)}
+            onChange={(e) => setStreet(e.target.value)}
           />
 
           <div className="field_group">
             <input
               placeholder="Telefone"
               autoComplete="false"
-              onChange={e => setPhone(e.target.value)}
+              onChange={(e) => setPhone(e.target.value)}
             />
 
             <input
               placeholder="Número"
               autoComplete="false"
-              onChange={e => setNumber(e.target.value)}
+              onChange={(e) => setNumber(e.target.value)}
             />
 
             <input
               placeholder="Complemento"
               autoComplete="false"
-              onChange={e => setComplement(e.target.value)}
+              onChange={(e) => setComplement(e.target.value)}
             />
           </div>
 

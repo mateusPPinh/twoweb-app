@@ -16,6 +16,7 @@ export const ContainerTitle = styled.h2`
   margin-top: 5rem;
   padding: 1rem;
   transition: transform 0.2s;
+  cursor: pointer;
   &:hover {
     transform: translateX(1rem);
   }
@@ -70,4 +71,9 @@ export const Cards = styled.div`
       background: ${shade(0.1, '#ffff')};
     }
   }
+`;
+
+export const Pagination = styled.div`
+  display: flex;
+  min-width: 40rem;
 `;

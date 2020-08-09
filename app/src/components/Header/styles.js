@@ -42,31 +42,30 @@ export const HeaderContent = styled.header`
     font-size: 1.5rem;
   }
 
- div {
-   align-items: center;
-   display: flex;
-   transition: transform 0.2s;
+  div {
+    align-items: center;
+    display: flex;
+    transition: transform 0.2s;
 
-   &:hover {
+    &:hover {
       transform: translateX(1rem);
     }
 
-  img {
-    width: 3.5rem;
-    height: 3.5rem;
-    border-radius: 50%;
-    border: 2px solid #333;
-    transition: border-radius 0.2s;
+    img {
+      width: 3.5rem;
+      height: 3.5rem;
+      border-radius: 50%;
+      border: 2px solid #333;
+      transition: border-radius 0.2s;
 
-    &:hover {
-      border-radius: 40%;
+      &:hover {
+        border-radius: 40%;
+      }
+    }
+
+    strong {
+      margin-left: 1rem;
+      color: #333;
     }
   }
-
-  strong {
-    margin-left: 1rem;
-    color: #333;
-  }
-}
 `;
-
