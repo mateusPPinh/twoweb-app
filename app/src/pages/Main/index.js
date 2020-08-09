@@ -1,28 +1,67 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 
 import { Container, SectionContainer, RegisterUser } from './styles';
 
 import HeaderComponent from '../../components/Header';
 import MessageOk from '../../components/SuccessInfo';
+import api from '../../services/api';
 
 export default function Main() {
   const [success, setSuccess] = useState(false);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [phone, setPhone] = useState('');
+  const [cep, setCep] = useState('');
+  const [street, setStreet] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [neighborhood, setNeighborhood] = useState('');
+  const [number, setNumber] = useState('');
+  const [complement, setComplement] = useState('');
 
-  function handleSuccessMessage() {
-    setSuccess(true);
+  const history = useHistory();
 
-    setTimeout(() => {
-      setSuccess(false);
-    }, 10000)
+  async function handleSuccessMessage(e) {
+    e.preventDefault();
+
+    const data = {
+      name,
+      email,
+      cpf,
+      phone,
+      cep,
+      street,
+      city,
+      state,
+      neighborhood,
+      number,
+      complement
+    };
+
+    try {
+      await api.post('users', data);
+
+      history.push('/dashboard-configurations');
+    } catch (err) {
+      console.log('Something is wrong, try again');
+    }
+
+    // setSuccess(true);
+
+    // setTimeout(() => {
+    //   setSuccess(false);
+    // }, 10000)
   }
 
   return (
     <Container>
-      {
+      {/* {
         success && (
           <MessageOk />
         )
-      }
+      } */}
       <HeaderComponent />
 
       <SectionContainer>
@@ -35,79 +74,86 @@ export default function Main() {
         </legend>
         <form onSubmit={handleSuccessMessage}>
           <input
-            type="text"
             placeholder="Nome completo"
             autoComplete="false"
+            required
+            onChange={e => setName(e.target.value)}
           />
 
           <input
             type="email"
             placeholder="Melhor e-mail"
             autoComplete="false"
+            required
+            onChange={e => setEmail(e.target.value)}
           />
 
           <div className="field_group">
             <input
-              type="number"
               placeholder="CPF"
               autoComplete="false"
+              required
+              onChange={e => setCpf(e.target.value)}
             />
 
             <input
-              type="number"
               placeholder="Telefone"
               autoComplete="false"
+              required
+              onChange={e => setPhone(e.target.value)}
             />
 
             <input
-              type="number"
               placeholder="CEP"
               autoComplete="false"
+              required
+              onChange={e => setCep(e.target.value)}
             />
           </div>
 
           <input
-            type="text"
             placeholder="Endereço"
             autoComplete="false"
+            required
+            onChange={e => setStreet(e.target.value)}
           />
 
           <div className="field_group">
             <input
-              type="text"
               placeholder="Cidade"
               autoComplete="false"
+              required
+              onChange={e => setCity(e.target.value)}
             />
 
             <input
-              type="text"
               placeholder="Estado"
               maxLength="2"
               autoComplete="false"
+              required
+              onChange={e => setState(e.target.value)}
             />
 
             <input
-              type="text"
               placeholder="Bairro"
               autoComplete="false"
+              required
+              onChange={e => setNeighborhood(e.target.value)}
             />
           </div>
 
           <div className="field_group">
             <input
-              type="text"
               placeholder="Rua"
               autoComplete="false"
             />
 
             <input
-              type="text"
               placeholder="Número"
               autoComplete="false"
             />
 
             <input
-              type="text"
               placeholder="Complemento"
               autoComplete="false"
             />
@@ -118,7 +164,6 @@ export default function Main() {
           </legend>
 
           <input
-            type="text"
             placeholder="Endereço Alternativo"
             autoComplete="false"
           />
@@ -131,19 +176,19 @@ export default function Main() {
 
           <div className="field_group">
             <input
-              type="text"
+
               placeholder="Telefone"
               autoComplete="false"
             />
 
             <input
-              type="text"
+
               placeholder="Número"
               autoComplete="false"
             />
 
             <input
-              type="text"
+
               placeholder="Complemento"
               autoComplete="false"
             />
