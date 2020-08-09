@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const Container = styled.div`
   margin: 50px auto;
@@ -15,7 +16,6 @@ export const ContainerTitle = styled.h2`
   margin-top: 5rem;
   padding: 1rem;
   transition: transform 0.2s;
-
   &:hover {
     transform: translateX(1rem);
   }
@@ -26,13 +26,14 @@ export const CardContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+  margin: 0 auto;
 `;
 
 export const Cards = styled.div`
   margin-top: 3rem;
   padding: 1rem;
   background: #7159c1;
-  width: 20rem;
+  width: 15rem;
   border-radius: 0.8rem;
   display: flex;
   flex-direction: column;
@@ -61,7 +62,12 @@ export const Cards = styled.div`
     margin-top: 1rem;
     height: 2rem;
     width: 10rem;
-    border-radius: 0.7rem;
+    border-radius: 0.5rem;
     font-weight: bold;
+    transition: background 0.2s;
+
+    &:hover {
+      background: ${shade(0.1, '#ffff')};
+    }
   }
 `;
