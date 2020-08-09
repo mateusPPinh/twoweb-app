@@ -1,14 +1,13 @@
 import React from 'react';
-import { FiCheckCircle } from 'react-icons/fi';
+
+import successImage from '../../assets/success.png';
 
 import { Container } from './styles';
 
 export default function SuccessInfo() {
   return (
     <Container>
-      <span>
-        <FiCheckCircle />
-      </span>
+      <img src={successImage} alt="Woman and Dog" /> 
       <h1>Usuário Salvo!</h1>
     </Container>
   );

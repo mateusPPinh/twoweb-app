@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { Container, SectionContainer, RegisterUser } from './styles';
-
 import HeaderComponent from '../../components/Header';
 import MessageOk from '../../components/SuccessInfo';
 import api from '../../services/api';
@@ -20,8 +19,6 @@ export default function Main() {
   const [neighborhood, setNeighborhood] = useState('');
   const [number, setNumber] = useState('');
   const [complement, setComplement] = useState('');
-
-  const history = useHistory();
 
   async function handleSuccessMessage(e) {
     e.preventDefault();
@@ -43,25 +40,23 @@ export default function Main() {
     try {
       await api.post('users', data);
 
-      history.push('/dashboard-configurations');
+      setSuccess(true);
+
+      setTimeout(() => {
+        setSuccess(false);
+      }, 2000)
     } catch (err) {
-      console.log('Something is wrong, try again');
+      toast.error('Erro ao cadastrar, tente novamente!')
     }
-
-    // setSuccess(true);
-
-    // setTimeout(() => {
-    //   setSuccess(false);
-    // }, 10000)
   }
 
   return (
     <Container>
-      {/* {
+      {
         success && (
           <MessageOk />
         )
-      } */}
+      }
       <HeaderComponent />
 
       <SectionContainer>
@@ -146,16 +141,19 @@ export default function Main() {
             <input
               placeholder="Rua"
               autoComplete="false"
+              onChange={e => setStreet(e.target.value)}
             />
 
             <input
               placeholder="Número"
               autoComplete="false"
+              onChange={e => setNumber(e.target.value)}
             />
 
             <input
               placeholder="Complemento"
               autoComplete="false"
+              onChange={e => setComplement(e.target.value)}
             />
           </div>
 
@@ -166,31 +164,26 @@ export default function Main() {
           <input
             placeholder="Endereço Alternativo"
             autoComplete="false"
-          />
-
-          <input
-            type="email"
-            placeholder="Rua"
-            autoComplete="false"
+            onChange={e => setStreet(e.target.value)}
           />
 
           <div className="field_group">
             <input
-
               placeholder="Telefone"
               autoComplete="false"
+              onChange={e => setPhone(e.target.value)}
             />
 
             <input
-
               placeholder="Número"
               autoComplete="false"
+              onChange={e => setNumber(e.target.value)}
             />
 
             <input
-
               placeholder="Complemento"
               autoComplete="false"
+              onChange={e => setComplement(e.target.value)}
             />
           </div>
 
