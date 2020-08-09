@@ -12,9 +12,35 @@ class UserController {
         .json({ error: 'That mail already exist, try another.' });
     }
 
-    const user = await User.create(req.body);
+    const {
+      id,
+      name,
+      email,
+      cpf,
+      phone,
+      cep,
+      city,
+      state,
+      neighborhood,
+      street,
+      number,
+      complement,
+    } = await User.create(req.body);
 
-    return res.json(user);
+    return res.json({
+      id,
+      name,
+      email,
+      cpf,
+      phone,
+      cep,
+      city,
+      state,
+      neighborhood,
+      street,
+      number,
+      complement,
+    });
   }
 }
 
