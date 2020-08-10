@@ -14,15 +14,15 @@ import api from '../../services/api';
 export default function DashboardConfigurations() {
   const [userProfile, setUserProfile] = useState([]);
   const [total, setTotal] = useState(0);
-  const [limit, setLimit] = useState();
-  const [pages, setPages] = useState(1);
+  // const [limit, setLimit] = useState();
+  // const [pages, setPages] = useState(1);
 
   useEffect(() => {
     api.get('users').then((response) => {
       setTotal(response.headers['x-total-count']);
       setUserProfile(response.data);
     });
-  }, [limit, total]);
+  }, [total]);
 
   return (
     <Container>

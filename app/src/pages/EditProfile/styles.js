@@ -88,3 +88,24 @@ export const RegisterUser = styled.div`
     }
   }
 `;
+
+export const Footer = styled.div`
+  margin-top: 2rem;
+  padding: 1rem;
+
+  button {
+    width: 10rem;
+    height: 3rem;
+    border: none;
+    background: #7159c1;
+    border-radius: 0.5rem;
+    color: #ffff;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background 0.2s;
+
+    &:hover {
+      background: ${shade(0.1, '#7159c1')};
+    }
+  }
+`;

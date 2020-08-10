@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   Container,
@@ -6,6 +7,7 @@ import {
   ProfileImage,
   SectionTitle,
   RegisterUser,
+  Footer,
 } from './styles';
 
 export default function EditProfile() {
@@ -60,6 +62,12 @@ export default function EditProfile() {
           </form>
         </RegisterUser>
       </EditContainer>
+
+      <Footer>
+        <Link to="/">
+          <button type="button">Voltar</button>
+        </Link>
+      </Footer>
     </Container>
   );
 }
