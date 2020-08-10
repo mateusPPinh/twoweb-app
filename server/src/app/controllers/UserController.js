@@ -1,4 +1,5 @@
 import User from '../models/User';
+import Mail from '../../lib/Mail';
 
 class UserController {
   async store(req, res) {
@@ -27,6 +28,13 @@ class UserController {
       complement,
     } = await User.create(req.body);
 
+    await Mail.sendMail({
+      to: 'maria@maria.com',
+      subject: 'Novo usuário adicionado',
+      text:
+        'Oi, Maria. Um novo usuário foi adicionado ao Dashboard, dê uma olhada.',
+    });
+
     return res.json({
       id,
       name,
@@ -41,6 +49,35 @@ class UserController {
       number,
       complement,
     });
+  }
+
+  async update(req, res) {
+    return res.json({ ok: true });
+  }
+
+  async index(req, res) {
+    const { page = 1 } = req.query;
+
+    const allUsers = await User.findAll({
+      attributes: [
+        'id',
+        'name',
+        'email',
+        'cpf',
+        'phone',
+        'cep',
+        'city',
+        'state',
+        'neighborhood',
+        'street',
+        'number',
+        'complement',
+      ],
+      limit: 20,
+      offset: (page - 1) * 20,
+    });
+
+    return res.json(allUsers);
   }
 }
 
