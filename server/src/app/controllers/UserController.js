@@ -31,8 +31,10 @@ class UserController {
     await Mail.sendMail({
       to: 'maria@maria.com',
       subject: 'Novo usuário adicionado',
-      text:
-        'Oi, Maria. Um novo usuário foi adicionado ao Dashboard, dê uma olhada.',
+      template: 'registration',
+      context: {
+        user: name,
+      },
     });
 
     return res.json({
