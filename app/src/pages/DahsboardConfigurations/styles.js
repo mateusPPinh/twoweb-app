@@ -26,14 +26,14 @@ export const CardContainer = styled.div`
   max-width: 800px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  gap: 15px;
   margin: 0 auto;
 `;
 
 export const Cards = styled.div`
   margin-top: 3rem;
   padding: 1rem;
-  background: #7159c1;
+  background: #DA3A21;
   width: 15rem;
   border-radius: 0.8rem;
   display: flex;
@@ -63,9 +63,11 @@ export const Cards = styled.div`
     margin-top: 1rem;
     height: 2rem;
     width: 10rem;
-    border-radius: 0.5rem;
+    border-radius: 0.2rem;
     font-weight: bold;
     transition: background 0.2s;
+    font-family: Recursive;
+    text-transform: uppercase;
 
     &:hover {
       background: ${shade(0.1, '#ffff')};
@@ -80,7 +82,7 @@ export const Pagination = styled.div`
   align-items: center;
 
   button {
-    background: #333;
+    background: #7159c1;
     border: 0;
     width: 10rem;
     height: 3rem;
@@ -90,7 +92,7 @@ export const Pagination = styled.div`
     transition: background 0.2s;
 
     &:hover {
-      background: ${shade(0.1, '#333')};
+      background: ${shade(0.1, '#7159c1')};
     }
   }
 `;

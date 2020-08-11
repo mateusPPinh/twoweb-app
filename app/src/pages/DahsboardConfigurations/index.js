@@ -35,9 +35,9 @@ export default function DashboardConfigurations() {
               alt="User Profile Pic"
             />
             <strong>{users.name}</strong>
-            <p>CPF: {users.cpf}</p>
+            <p>CPF: <b>{users.cpf}</b></p>
 
-            <button type="button">Editar Informações</button>
+            <button type="button">Editar</button>
           </Cards>
         ))}
       </CardContainer>
