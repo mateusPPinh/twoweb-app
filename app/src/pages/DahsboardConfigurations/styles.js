@@ -75,5 +75,22 @@ export const Cards = styled.div`
 
 export const Pagination = styled.div`
   display: flex;
-  min-width: 40rem;
+  margin-top: 5rem;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    background: #333;
+    border: 0;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 0.8rem 0.4rem;
+    color: #ffff;
+    font-weight: bold;
+    transition: background 0.2s;
+
+    &:hover {
+      background: ${shade(0.1, '#333')};
+    }
+  }
 `;

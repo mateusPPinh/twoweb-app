@@ -13,16 +13,13 @@ import api from '../../services/api';
 
 export default function DashboardConfigurations() {
   const [userProfile, setUserProfile] = useState([]);
-  const [total, setTotal] = useState(0);
-  // const [limit, setLimit] = useState();
-  // const [pages, setPages] = useState(1);
+  const [pages, setPages] = useState(1);
 
   useEffect(() => {
-    api.get('users').then((response) => {
-      setTotal(response.headers['x-total-count']);
+    api.get(`users?page=${pages}`).then((response) => {
       setUserProfile(response.data);
     });
-  }, [total]);
+  }, []);
 
   return (
     <Container>
@@ -32,7 +29,7 @@ export default function DashboardConfigurations() {
 
       <CardContainer>
         {userProfile.map((users) => (
-          <Cards>
+          <Cards key={users.id}>
             <img
               src="https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=334&q=80"
               alt="User Profile Pic"
@@ -46,7 +43,8 @@ export default function DashboardConfigurations() {
       </CardContainer>
 
       <Pagination>
-        <div>qntd {total}</div>
+        <button type="button">Página Anterior</button>
+        <button type="button">Próxima página</button>
       </Pagination>
     </Container>
   );
