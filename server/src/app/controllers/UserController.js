@@ -54,7 +54,18 @@ class UserController {
   }
 
   async update(req, res) {
-    const { name, email } = req.body;
+    const {
+      name,
+      email,
+      phone,
+      cep,
+      street,
+      city,
+      state,
+      neighborhood,
+      number,
+      complement,
+    } = req.body;
 
     const user = await User.findByPk(req.params.id);
 
@@ -68,9 +79,22 @@ class UserController {
         .json({ error: 'That mail already exist, try another.' });
     }
 
-    const { id, cpf, number } = await user.update(req.body);
+    const { id, cpf } = await user.update(req.body);
 
-    return res.json({ name, email, id, cpf, number });
+    return res.json({
+      name,
+      email,
+      id,
+      cpf,
+      number,
+      phone,
+      cep,
+      street,
+      city,
+      state,
+      neighborhood,
+      complement,
+    });
   }
 
   async index(req, res) {
