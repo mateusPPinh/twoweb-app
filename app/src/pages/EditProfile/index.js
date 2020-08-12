@@ -59,6 +59,7 @@ export default function EditProfile() {
               <input placeholder="Complemento" autoComplete="false" />
             </div>
             <button type="submit">Salvar alterações</button>
+            <button className="delete_button" type="button">Excluir</button>
           </form>
         </RegisterUser>
       </EditContainer>

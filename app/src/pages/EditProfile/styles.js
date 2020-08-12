@@ -86,6 +86,15 @@ export const RegisterUser = styled.div`
         background: ${shade(0.1, '#7159c1')};
       }
     }
+
+   .delete_button {
+      background: #DA3A21;
+      transition: background 0.2s;
+
+      &:hover {
+        background: ${shade(0.1, "#DA3A21")};
+      }
+    }
   }
 `;
 

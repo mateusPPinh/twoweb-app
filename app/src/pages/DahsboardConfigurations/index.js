@@ -16,9 +16,11 @@ export default function DashboardConfigurations() {
   const [pages, setPages] = useState(1);
 
   useEffect(() => {
-    api.get(`users?page=${pages}`).then((response) => {
+    async function loadData() {
+      const response = await api.get(`users?page=${pages}`);
       setUserProfile(response.data);
-    });
+    }
+    loadData();
   }, []);
 
   return (
