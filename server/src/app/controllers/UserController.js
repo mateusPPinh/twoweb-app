@@ -54,7 +54,23 @@ class UserController {
   }
 
   async update(req, res) {
-    return res.json({ ok: true });
+    const { name, email } = req.body;
+
+    const user = await User.findByPk(req.params.id);
+
+    const userAlreadyExists = await User.findOne({
+      where: { email },
+    });
+
+    if (userAlreadyExists) {
+      return res
+        .status(400)
+        .json({ error: 'That mail already exist, try another.' });
+    }
+
+    const { id, cpf, number } = await user.update(req.body);
+
+    return res.json({ name, email, id, cpf, number });
   }
 
   async index(req, res) {
@@ -80,6 +96,14 @@ class UserController {
     });
 
     return res.json(allUsers);
+  }
+
+  async delete(req, res) {
+    const user = await User.findByPk(req.params.id);
+
+    await user.destroy();
+
+    return res.json(user);
   }
 }
 
