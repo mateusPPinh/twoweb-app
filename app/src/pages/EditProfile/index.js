@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
-import api from '../../services/api';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   Container,
@@ -12,23 +11,12 @@ import {
 } from './styles';
 
 export default function EditProfile() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    async function loadData() {
-      const response = await api.put('users');
-      setData(response.data);
-    }
-    loadData();
-  }, [])
-
   return (
     <Container>
       <EditContainer>
         <ProfileImage src="https://images.unsplash.com/photo-1546422401-68b415cbf8de?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" />
         <SectionTitle>Antônia Maria</SectionTitle>
         <RegisterUser>
-        {/* {data.map(datas => ())} */}
         <legend>
             <p>Edite os dados de</p>
           </legend>
