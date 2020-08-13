@@ -14,7 +14,7 @@ export default function Header() {
         <h1>dash | board</h1>
 
         {pathname !== '/dashboard-configurations' && (
-          <Link to="/dashboard-configurations">Alterar Usuários</Link>
+          <Link to="/dashboard-configurations">Meus usuários</Link>
         )}
 
         {pathname !== '/' && <Link to="/">Voltar</Link>}

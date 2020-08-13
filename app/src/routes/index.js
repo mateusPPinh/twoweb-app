@@ -5,9 +5,6 @@ import Main from '../pages/Main';
 import DashboardConfiguration from '../pages/DahsboardConfigurations';
 import EditProfile from '../pages/EditProfile';
 
-// That file correspond a test, don't use that route.
-import UserList from '../pages/UserList';
-
 export default function Routes() {
   return (
     <Switch>
@@ -17,7 +14,6 @@ export default function Routes() {
         component={DashboardConfiguration}
       />
       <Route path="/edit" component={EditProfile} />
-      <Route path="/users" component={UserList} />
     </Switch>
   );
 }

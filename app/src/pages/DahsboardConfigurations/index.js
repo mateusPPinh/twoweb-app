@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import {
   Container,
@@ -13,11 +14,10 @@ import api from '../../services/api';
 
 export default function DashboardConfigurations() {
   const [userProfile, setUserProfile] = useState([]);
-  const [pages, setPages] = useState(1);
 
   useEffect(() => {
     async function loadData() {
-      const response = await api.get(`users?page=${pages}`);
+      const response = await api.get('users');
       setUserProfile(response.data);
     }
     loadData();
@@ -39,7 +39,9 @@ export default function DashboardConfigurations() {
             <strong>{users.name}</strong>
             <p>CPF: <b>{users.cpf}</b></p>
 
-            <button type="button">Editar</button>
+            <Link to="/edit">
+              <button type="button">Editar</button>
+            </Link>
           </Cards>
         ))}
       </CardContainer>
